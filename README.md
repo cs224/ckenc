@@ -5,7 +5,7 @@ Click-based command line interface.
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 - liboqs installed (if not pulling directly from GitHub).
 - [liboqs-python](https://github.com/open-quantum-safe/liboqs-python).
 
@@ -34,3 +34,11 @@ poetry run ckenc encrypt kyber_public.bin test-secret.txt  test-secret.txt.enc
 # Decrypt
 poetry run ckenc decrypt kyber_secret.bin test-secret.txt.enc test-secret.dec.txt
 ```
+
+Or with `uvx`:
+```bash
+uvx gh:cs224/ckenc genkey
+uvx --from git+https://github.com/cs224/ckenc ckenc genkey
+echo "testsecret" | uvx --from git+https://github.com/cs224/ckenc ckenc encrypt kyber_public.bin - - | uvx --from git+https://github.com/cs224/ckenc ckenc decrypt kyber_secret.bin - -
+```
+
