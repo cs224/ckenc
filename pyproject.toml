@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ckenc"
+version = "0.1.0"
+description = "A sample CRYSTALS-Kyber encryption CLI tool using CRYSTALS-Kyber and AES"
+authors = [
+  { name = "Your Name", email = "you@example.com" }
+]
+readme = "README.md"
+# [Trouble with a packaging tutorial: Licence build issue](https://github.com/pypa/packaging-problems/issues/870)
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+# license = "MIT"
+requires-python = ">=3.9"
+keywords = ["ckenc", "post-quantum", "kyber", "click"]
+
+# For external dependencies:
+dependencies = [
+  "click>=8.1.0,<9.0.0",
+  "cryptography>=3.0,<41.0",
+  # If you already have liboqs + liboqs-python installed system-wide, you could omit this line.
+  # Otherwise, try referencing the GitHub repo (requires `pip` 21.1+ or a tool that supports PEP 508 VCS URLs)
+  "liboqs-python @ git+https://github.com/open-quantum-safe/liboqs-python.git#egg=oqs"
+]
+
+[project.scripts]
+ckenc = "ckenc.cli:main"
+
+[tool.poetry]
+# (Optional) If you are using Poetry specifically, you can place your Poetry config here.
