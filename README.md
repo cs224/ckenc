@@ -40,7 +40,6 @@ poetry run ckenc decrypt kyber_secret.bin test-secret.txt.enc test-secret.dec.tx
 
 Or with [uv](https://docs.astral.sh/uv/getting-started/installation/)/[uvx](https://docs.astral.sh/uv/guides/tools/):
 ```bash
-uvx gh:cs224/ckenc genkey
 uvx --from git+https://github.com/cs224/ckenc ckenc genkey
 echo "testsecret" | uvx --from git+https://github.com/cs224/ckenc ckenc encrypt kyber_public.bin - - | uvx --from git+https://github.com/cs224/ckenc ckenc decrypt kyber_secret.bin - -
 ```
