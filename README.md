@@ -1,7 +1,8 @@
 # ckenc
 
-A demonstration project for file encryption using CRYSTALS-Kyber (KEM) + AES, with a
+A demonstration project for post-quantum file encryption using CRYSTALS-Kyber ([FIPS203](https://www.sectigo.com/resource-library/who-are-nists-post-quantum-algorithm-winners) / ML-KEM) + AES, with a
 Click-based command line interface.
+
 
 ## Requirements
 
@@ -22,6 +23,8 @@ pip install .
 
 ## Usage
 
+With [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer):
+
 ```bash
 # Generate keys
 poetry run ckenc genkey
@@ -35,7 +38,7 @@ poetry run ckenc encrypt kyber_public.bin test-secret.txt  test-secret.txt.enc
 poetry run ckenc decrypt kyber_secret.bin test-secret.txt.enc test-secret.dec.txt
 ```
 
-Or with `uvx`:
+Or with [uv](https://docs.astral.sh/uv/getting-started/installation/)/[uvx](https://docs.astral.sh/uv/guides/tools/):
 ```bash
 uvx gh:cs224/ckenc genkey
 uvx --from git+https://github.com/cs224/ckenc ckenc genkey
